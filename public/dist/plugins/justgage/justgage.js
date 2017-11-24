@@ -1044,8 +1044,7 @@ function kvLookup(key, tablea, tableb, defval, datatype, delimiter) {
     }
   }
   return val;
-};
-
+}
 /** Get color for value */
 function getColor(val, pct, col, noGradient, custSec) {
 
@@ -1217,4 +1216,4 @@ function extend(out) {
   }
 
   return out;
-};
+}

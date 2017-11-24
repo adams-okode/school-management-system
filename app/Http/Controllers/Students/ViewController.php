@@ -84,10 +84,12 @@ class ViewController extends Controller
     {
         # code...
         $app = Applications::where('id',$id)->first();
-        $course = Courses::get();
+        $batch = Batch::where('id',$app->batch_id)->first();
+        $course = Courses::where('id',$app->course_id)->first();
         return view('Students.Settings.Process')->with([
             'application'=> $app,
             'course'=> $course,
+            'batch'=> $batch,
         ]);
     }
 }

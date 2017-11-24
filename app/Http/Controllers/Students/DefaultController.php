@@ -14,6 +14,7 @@ use App\Primary;
 use App\HighSchool;
 use App\Tertiary;
 use App\Documents;
+use App\User;
 
 class DefaultController extends Controller
 {
@@ -155,7 +156,7 @@ class DefaultController extends Controller
                     $file->move($destinationPath, $filename);
                     $year = new Documents;
                     $year->Documents= $filename;
-                    $year->Owner_id=$id;
+                    $year->Application_id=$id;
                     $year->Category='APPLICANT';
                     $year->Type='PRIMARY';
 
@@ -205,7 +206,7 @@ class DefaultController extends Controller
                     $file->move($destinationPath, $filename);
                     $year = new Documents;
                     $year->Documents= $filename;
-                    $year->Owner_id=$id;
+                    $year->Application_id=$id;
                     $year->Category='APPLICANT';
                     $year->Type='HIGHSCHOOL';
 
@@ -256,7 +257,7 @@ class DefaultController extends Controller
                     $file->move($destinationPath, $filename);
                     $year = new Documents;
                     $year->Documents= $filename;
-                    $year->Owner_id=$id;
+                    $year->Application_id=$id;
                     $year->Category='APPLICANT';
                     $year->Type='TERTIARY';
 
@@ -361,7 +362,7 @@ class DefaultController extends Controller
 
             case 8:
                 $data=[];
-                $year = Applications::where('id',$request->id);
+                $year = Applications::where('id',$request->id)->first();
                 foreach ($request->all() as $key => $value) {
                     //creating array excluding the _token the array will be used for update
                     if ($key=='id'or $key=='q' or $key=='_token')continue;
@@ -423,6 +424,13 @@ class DefaultController extends Controller
                     $year->FinancesDescription = $key->FinancesDescription;
                     $year->course_id = $key->course_id;
                     $year->batch_id = $key->batch_id;
+
+                    $user=new User();
+                    $user->name=$key->first_name;
+                    $user->username=$key->middle_names;
+                    $user->email=$key->email_address;
+                    $user->password=bcrypt($key->email_address);
+                    $user->save();
                 }
 
                 if ($year->save()){

@@ -21,6 +21,7 @@ class CreateExamsTable extends Migration
             $table->string('Category')->nullable();
             $table->string('Units')->nullable();
             $table->string('Semester')->nullable();
+            $table->string('out_of')->nullable();
             $table->string('Status',1000)->nullable();
             $table->timestamps();
         });
