@@ -1,7 +1,3 @@
-
-
- ## ABOUT ALANA
-
 ##Finance Management System: 
 
 We offer a robust financial management solutions that looks into capturing, processing and reporting of your financial processes. Alana seeks to improve all the financial processes as well as make all transactions transparent thus raising a high degree of Accountability. Under the financial Module, we offer the following:

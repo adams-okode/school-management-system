@@ -29,7 +29,7 @@ class CreateStudentsTable extends Migration
             $table->string('Exam_Status')->default('0');
             $table->string('AcademicDescription',1000)->nullable();
             $table->string('Fee_Status',300)->default('PAID');
-            $table->string('National id', 300)->nullable();
+            $table->string('National_id', 300)->nullable();
             $table->string('postal_address')->nullable();
             $table->string('telephone_number')->nullable();
             $table->string('mobile_number')->nullable();
@@ -45,6 +45,8 @@ class CreateStudentsTable extends Migration
             $table->string('FinancesDescription',1000)->nullable();
             $table->string('course_id')->nullable();
             $table->string('batch_id')->nullable();
+            $table->integer('set_fee')->nullable();
+            $table->integer('boarding')->default(0);
             $table->timestamps();
         });
     }

@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 Use App\Courses;
 use App\School;
 use App\College;
-use App\campus;
+use App\Campus;
 use App\Departments;
 use App\Units;
 use App\Units_for_courses;
@@ -20,7 +20,7 @@ class UnitsController extends Controller
         $course = Courses::get();
         $school = School::get();
         $college = College::get();
-        $campus = campus:: get();
+        $campus = Campus:: get();
         $depart = Departments:: get();
         $units = Units:: get();
 

@@ -16,7 +16,7 @@ class CreateMarksTable extends Migration
         Schema::create('Marks', function (Blueprint $table) {
             $table->increments('id');
             $table->string('Student_id');
-            $table->string('Marks_id')->nullable();
+            $table->string('Exam_id')->nullable();
             $table->string('Academic_year')->nullable();
             $table->string('Semester')->nullable();
             $table->string('Results')->nullable();

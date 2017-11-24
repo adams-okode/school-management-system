@@ -20,7 +20,7 @@ class DefaultController extends Controller
         $banks = \App\BankAccount::get();
         $currencies = \App\Currency::get();
         $ledgers = \App\Ledger::get();
-        $voteheads = \App\Votehead::get();
+        $voteheads = \App\VoteHead::get();
 
         return view('finance.index')->with([
             'years'=> $years,

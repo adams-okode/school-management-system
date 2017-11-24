@@ -4,18 +4,18 @@ namespace App\Http\Controllers\Academics;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\school;
-use App\college;
-use App\campus;
+use App\School;
+use App\College;
+use App\Campus;
 
 class SchoolController extends Controller
 {
     public function school()
     {
         # code...
-        $school = school::get();
-        $college = college::get();
-        $campus = campus:: get();
+        $school = School::get();
+        $college = College::get();
+        $campus = Campus:: get();
 
         return view('Academics2.school')->with([
             'school'=> $school,
@@ -27,7 +27,7 @@ class SchoolController extends Controller
 
     public function create(Request $request)
     {
-        $year = new school;
+        $year = new School;
         foreach ($request->all() as $key => $value) {
             //creating objects excluding the _token
             if ($key=='_token')continue;
@@ -55,8 +55,8 @@ class SchoolController extends Controller
         $id = $request->input('id');
         $status = $request->input('status');
 
-        If(school::where('id',$id)){
-            $default = school::where('id', '=', $id)->first();
+        If(School::where('id',$id)){
+            $default = School::where('id', '=', $id)->first();
 
             if ($status != '') {
                 $default->update(array(
@@ -78,7 +78,7 @@ class SchoolController extends Controller
     {
         # code...
         $data=[];
-        $year = school::where('id',$request->id);
+        $year = School::where('id',$request->id);
         foreach ($request->all() as $key => $value) {
             //creating array excluding the _token the array will be used for update
             if ($key=='_token'||$key=='id')continue;

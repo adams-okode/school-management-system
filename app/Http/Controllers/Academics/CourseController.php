@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Academics;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-Use App\courses;
-use App\school;
-use App\college;
-use App\campus;
+Use App\Courses;
+use App\School;
+use App\College;
+use App\Campus;
 use App\Departments;
 use App\Units_for_courses;
 
@@ -16,10 +16,10 @@ class CourseController extends Controller
     public function course()
     {
         # code...
-        $course = courses::get();
-        $school = school::get();
-        $college = college::get();
-        $campus = campus:: get();
+        $course = Courses::get();
+        $school = School::get();
+        $college = College::get();
+        $campus = Campus:: get();
         $depart = Departments:: get();
 
         return view('Academics2.course')->with([
